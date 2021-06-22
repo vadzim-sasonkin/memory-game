@@ -1,0 +1,16 @@
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: auto;
+  column-gap: 10%;
+  row-gap: 5vh;
+}
+
+.imgBox {
+  margin: auto;
+}
+
+.imgBox > img {
+  width: 100%;
+}

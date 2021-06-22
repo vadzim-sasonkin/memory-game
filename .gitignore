@@ -25,3 +25,7 @@ yarn-error.log*
 
 #dev files
 todo.md
+
+#env
+.env
+.env.local
