@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { cardsSelectors, fetchImages } from 'redux-store';
+import { cardsSelectors, fetchImages, gameActions } from 'redux-store';
 import { useDispatch, useSelector } from 'react-redux';
-import { ImagesGrid, PageLayout } from 'components';
+import { PageLayout } from 'components';
+import { CardsGrid } from 'components/cards-grid';
 
 export const GamePage = () => {
   const cards = useSelector(cardsSelectors.selectAll);
@@ -11,9 +12,14 @@ export const GamePage = () => {
       dispatch(fetchImages());
     }
   }, [dispatch, cards]);
+  useEffect(() => {
+    if (cards.length) {
+      dispatch(gameActions.initGame(cards));
+    }
+  }, [dispatch, cards]);
   return (
     <PageLayout>
-      <ImagesGrid images={cards} />
+      <CardsGrid />
     </PageLayout>
   );
 };

@@ -43,7 +43,7 @@ async function loadRandomPhotos() {
   const response = await apiFetch('photos/random', {
     params: { count: config.numberOfCards, orientation: 'portrait' },
   });
-  return response.map(({ id, urls, description }) => ({ id, urls, description }));
+  return response.map(({ id, urls: { thumb }, description }) => ({ id, url: thumb, description }));
 }
 
 export const imagesService = { loadRandomPhotos };

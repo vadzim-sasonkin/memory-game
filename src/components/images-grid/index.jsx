@@ -6,7 +6,7 @@ export const ImagesGrid = ({ images, onClick }) => {
     <div className={classes.container}>
       {images.map((image) => (
         <div className={classes.imgBox} key={image.id}>
-          <img src={image.urls.thumb} alt={image.description} />
+          <img src={image.url} alt={image.description} />
         </div>
       ))}
     </div>
