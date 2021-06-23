@@ -9,3 +9,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+:root {
+  --primary-color-light: #f8f9fa;
+  --primary-color-lighter: #e9ecef;
+  --primary-color: #dee2e6;
+  --primary-color-darker: #ced4da;
+  --primary-color-dark: #adb5bd;
+  --secondary-color-light: #6c757d;
+  --secondary-color: #495057;
+  --secondary-color-darker: #343a40;
+  --secondary-color-dark: #212529;
+}

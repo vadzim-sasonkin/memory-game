@@ -3,7 +3,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  /* height: 48px; */
   background-color: white;
   box-shadow: 0px 0 5px rgba(0, 0, 0, 0.6);
 }
@@ -17,4 +16,14 @@
   padding: 8px 0;
   flex: 1;
   text-align: center;
+  text-decoration: none;
+}
+
+.list a:hover:not(.active) {
+  background-color: var(--primary-color-light);
+}
+
+.active {
+  background-color: var(--secondary-color-light);
+  color: var(--primary-color-light);
 }

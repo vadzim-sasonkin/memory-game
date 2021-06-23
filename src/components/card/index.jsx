@@ -18,7 +18,7 @@ export const Card = ({ card, disabled, onClick }) => {
           <img src={card.image.url} alt={card.image.description} />
         </div>
         <div className={classes.backside}>
-          <span>HOHOH</span>
+          <span></span>
         </div>
       </div>
     </div>

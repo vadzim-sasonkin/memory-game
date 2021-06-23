@@ -13,6 +13,7 @@
   transition: transform 0.6s;
   transform-style: preserve-3d;
   margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .backside,
@@ -23,15 +24,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1px;
 }
 
 .imgside > img {
-  margin: auto;
   width: 100%;
 }
 
 .backside {
   background-color: antiquewhite;
+  background-image: linear-gradient(
+    var(--primary-color-darker),
+    var(--primary-color),
+    var(--primary-color-darker),
+    var(--primary-color),
+    var(--primary-color-darker)
+  );
 }
 
 .imgside {
@@ -40,6 +48,7 @@
 
 .guessed .card {
   transform: rotateY(180deg);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 .shown .card {
