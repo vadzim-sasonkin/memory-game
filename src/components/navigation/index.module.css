@@ -1,0 +1,20 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* height: 48px; */
+  background-color: white;
+  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.6);
+}
+
+.list {
+  display: flex;
+  margin: 0;
+}
+
+.list a {
+  padding: 8px 0;
+  flex: 1;
+  text-align: center;
+}

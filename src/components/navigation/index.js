@@ -1,20 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classes from './index.module.css';
 
 export const Navigation = () => {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to="/init">Init</Link>
-        </li>
-        <li>
-          <Link to="/game">Game</Link>
-        </li>
-        <li>
-          <Link to="/score">Score</Link>
-        </li>
-      </ul>
+    <div className={classes.container}>
+      <nav className={classes.list}>
+        <Link to="/init">Init</Link>
+        <Link to="/game">Game</Link>
+        <Link to="/score">Score</Link>
+      </nav>
     </div>
   );
 };

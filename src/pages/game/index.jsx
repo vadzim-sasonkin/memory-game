@@ -1,22 +1,17 @@
 import React, { useEffect } from 'react';
-import { cardsSelectors, fetchImages, gameActions } from 'redux-store';
+import { gameActions, gameSelectors } from 'redux-store';
 import { useDispatch, useSelector } from 'react-redux';
 import { PageLayout } from 'components';
 import { CardsGrid } from 'components/cards-grid';
 
 export const GamePage = () => {
-  const cards = useSelector(cardsSelectors.selectAll);
+  const gameInitialized = useSelector(gameSelectors.gameInitialized);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (cards.length === 0) {
-      dispatch(fetchImages());
+    if (!gameInitialized) {
+      dispatch(gameActions.startGame());
     }
-  }, [dispatch, cards]);
-  useEffect(() => {
-    if (cards.length) {
-      dispatch(gameActions.initGame(cards));
-    }
-  }, [dispatch, cards]);
+  }, [dispatch, gameInitialized]);
   return (
     <PageLayout>
       <CardsGrid />

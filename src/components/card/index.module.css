@@ -1,16 +1,47 @@
 .container {
-  padding: 5%;
-
-  width: 50%;
-  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}
+.container:hover {
+  cursor: pointer;
 }
 
-.hidden {
-  background-color: azure;
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  margin: auto;
 }
-.shown {
+
+.backside,
+.imgside {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgside > img {
+  margin: auto;
+  width: 100%;
+}
+
+.backside {
   background-color: antiquewhite;
 }
-.guessed {
-  background-color: green;
+
+.imgside {
+  transform: rotateY(180deg);
+}
+
+.guessed .imgside {
+  transform: rotateY(0);
+}
+
+.shown .card {
+  transform: rotateY(180deg);
 }

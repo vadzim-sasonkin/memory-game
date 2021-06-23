@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { gameActions } from 'redux-store';
+import { gameSelectors } from 'redux-store';
 import { cardStatuses } from 'utils/game';
 import { Card } from '../card';
+import classes from './index.module.css';
 
 export const CardsGrid = () => {
-  const cards = useSelector((state) => state.game.cards);
+  const cards = useSelector(gameSelectors.cards);
   const dispatch = useDispatch();
   const handleCardClick = (card) => {
     if (card.status === cardStatuses.GUESSED) {
@@ -15,7 +17,7 @@ export const CardsGrid = () => {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       {cards.map((card) => (
         <Card key={card.position} card={card} onClick={handleCardClick} />
       ))}
