@@ -79,6 +79,7 @@ const gameSelectors = {
     generalSelector,
     (game) => game.cards.filter((card) => card.status === cardStatuses.GUESSED)?.length / 2,
   ),
+  all: createSelector(generalSelector, (game) => game.cards.length / 2),
   gameInitialized: createSelector(generalSelector, (game) => game.cards.length > 0),
 };
 
