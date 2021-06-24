@@ -74,7 +74,7 @@ const gameSelectors = {
   score: createSelector(
     generalSelector,
     (game) =>
-      game.cards.filter((card) => card.status === cardStatuses.GUESSED).length / game.clicks,
+      game.cards.filter((card) => card.status === cardStatuses.GUESSED).length / game.clicks || 0,
   ),
   guessed: createSelector(
     generalSelector,
