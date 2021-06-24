@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color-light);
+}
+
+.score,
+.guessed {
+  padding: 10%;
+  font-size: 1.25rem;
+}
+
+.score {
+  border-bottom: 1px solid var(--primary-color-lighter);
+}
+
+.score-description {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 600px) {
+  .container {
+    width: 50%;
+    border-radius: 8px;
+  }
+}

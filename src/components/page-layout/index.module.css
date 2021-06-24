@@ -1,4 +1,12 @@
+@media (min-width: 600px) {
+  .container {
+    padding: 8px;
+  }
+}
+
 .container {
-  padding: 8px;
+  display: flex;
+  min-height: 100%;
+  box-sizing: border-box;
   padding-bottom: 48px;
 }

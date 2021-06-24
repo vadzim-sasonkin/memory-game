@@ -34,7 +34,6 @@ async function apiFetch(endpoint, { params, body, ...configProps } = {}) {
     const response = await window.fetch(url, fetchConfig);
     return await handleResponse(response);
   } catch (error) {
-    // store.dispatch({ type: CALL_API_ERROR, payload: error.toString() });
     throw error;
   }
 }

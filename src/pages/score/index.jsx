@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { gameSelectors } from 'redux-store';
-import { PageLayout } from 'components';
+import { PageLayout, Scoreboard } from 'components';
 import classes from './index.module.css';
 
 export const ScorePage = () => {
@@ -10,8 +10,7 @@ export const ScorePage = () => {
   return (
     <PageLayout>
       <div className={classes.container}>
-        <span>{`Score is ${score}`}</span>
-        <span>{`Number of guessed is ${guessed}`}</span>
+        <Scoreboard score={score} guessed={guessed} />
       </div>
     </PageLayout>
   );

@@ -4,3 +4,4 @@ export { Navigation } from './navigation';
 export { ImagesGrid } from './images-grid';
 export { CardsGrid } from './cards-grid';
 export { Button } from './button';
+export { Scoreboard } from './scoreboard';
