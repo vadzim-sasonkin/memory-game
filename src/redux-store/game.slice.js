@@ -1,4 +1,3 @@
-import { config } from 'utils';
 import { cardStatuses } from 'utils/game';
 import { fetchImages } from 'redux-store/cards.slice';
 
@@ -33,6 +32,12 @@ const { reducer: gameReducer, actions } = createSlice({
       state.cards = setCardsToGame(action.payload);
       state.clicks = 0;
     },
+    close(state, action) {
+      const shownCards = action.payload;
+      shownCards.forEach((card) => {
+        state.cards[card.position].status = cardStatuses.HIDDEN;
+      });
+    },
     checkToClose(state, action) {
       const shownCards = state.cards.filter((card) => card.status === cardStatuses.SHOWN);
       if (shownCards.length > 1) {
@@ -54,22 +59,18 @@ const { reducer: gameReducer, actions } = createSlice({
   },
 });
 
-const setCardStatus = (cardPosition) => async (dispatch) => {
-  dispatch(gameActions.setStatus(cardPosition));
-  setTimeout(() => {
-    dispatch(gameActions.checkToClose());
-  }, config.delay);
-};
-
 const startGame = () => async (dispatch) => {
   await dispatch(fetchImages());
-  // dispatch(actions.initGame());
 };
 
 const generalSelector = (state) => state.game;
 const gameSelectors = {
   cards: (state) =>
     state.game.cards.map((card) => ({ ...card, image: state.cards.entities[card.id] })),
+  shownCards: createSelector(
+    generalSelector,
+    (game) => game.cards.filter((card) => card.status === cardStatuses.SHOWN)?.length,
+  ),
   score: createSelector(
     generalSelector,
     (game) =>
@@ -83,5 +84,5 @@ const gameSelectors = {
   gameInitialized: createSelector(generalSelector, (game) => game.cards.length > 0),
 };
 
-const gameActions = { ...actions, setCardStatus, startGame };
+const gameActions = { ...actions, startGame };
 export { gameReducer, gameActions, gameSelectors };
